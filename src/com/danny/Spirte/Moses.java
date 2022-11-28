@@ -10,4 +10,8 @@ public class Moses extends Sprite{
     }
 
 
+    @Override
+    public String overlap(int x, int y) {
+        return null;
+    }
 }
