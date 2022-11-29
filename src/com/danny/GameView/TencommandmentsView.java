@@ -14,13 +14,28 @@ public class TencommandmentsView extends GameView{
 
 
 
-    private int count = 0 ;
+    private int count ;
 
     public TencommandmentsView(){
         img = new ImageIcon("mountain.jpg");
         elements = new ArrayList<>();
 //        stone = new Tencommandment(5, 5 );
 //        elements.add(stone);
+        count = 0;
+
+        stones.add(new Tencommandment(5,5));
+        stones.add(new Tencommandment(5,5));
+        stones.add(new Tencommandment(3,4));
+        stones.add(new Tencommandment(2,5));
+        stones.add(new Tencommandment(3,5));
+        stones.add(new Tencommandment(4,5));
+        stones.add(new Tencommandment(5,7));
+        stones.add(new Tencommandment(8,9));
+        stones.add(new Tencommandment(1,10));
+        stones.add(new Tencommandment(2,10));
+
+        elements.addAll(stones);
+
     }
     public ArrayList<Tencommandment> getStones() {
         return stones;
