@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d718c8b8-44c7-4ec0-ba9c-7116c4a2be55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/DisasterView/Bug.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/DisasterView/Frog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/DisasterView/Ice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/DisasterView/Tombstone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/danny/GameView/RedSeaGameView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/danny/GameView/TencommandmentsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/RedSeaViewSprite/Anubis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/RedSeaViewSprite/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/RedSeaViewSprite/Pharoah.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/danny/Spirte/TencommandmentSprite/Tencommandment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/danny/GameView/DisasterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/danny/GameView/DisasterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/danny/GameView/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/danny/GameView/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/danny/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/danny/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/danny/Spirte/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/danny/Spirte/Door.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/danny/Spirte/Moses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/danny/Spirte/Moses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/danny/Spirte/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/danny/Spirte/Sprite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +49,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/terry/Desktop/Bible_Game/Bible_Game",
     "node.js.detected.package.eslint": "true",
@@ -77,7 +80,7 @@
       <workItem from="1669661873137" duration="1131000" />
       <workItem from="1669663043162" duration="12000" />
       <workItem from="1669663067482" duration="108000" />
-      <workItem from="1669666899955" duration="2075000" />
+      <workItem from="1669666899955" duration="13928000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,13 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class DisasterView extends GameView{
+
+
+    private ArrayList<Bug> bugs = new ArrayList<>();
+    private ArrayList<Frog> frogs = new ArrayList<>();
+    private ArrayList<Ice> iceCubes = new ArrayList<>();
+    private ArrayList<Tombstone> stones = new ArrayList<>();
+
     public ArrayList<Bug> getBugs() {
         return bugs;
     }
@@ -25,11 +32,6 @@ public class DisasterView extends GameView{
     public ArrayList<Tombstone> getStones() {
         return stones;
     }
-
-    private ArrayList<Bug> bugs = new ArrayList<>();
-    private ArrayList<Frog> frogs = new ArrayList<>();
-    private ArrayList<Ice> iceCubes = new ArrayList<>();
-    private ArrayList<Tombstone> stones = new ArrayList<>();
 
     public DisasterView(){
         img = new ImageIcon("egypt.jpg");

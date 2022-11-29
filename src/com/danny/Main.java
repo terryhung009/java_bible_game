@@ -2,7 +2,16 @@ package com.danny;
 
 import com.danny.GameView.DisasterView;
 import com.danny.GameView.GameView;
+import com.danny.GameView.RedSeaGameView;
+import com.danny.GameView.TencommandmentsView;
+import com.danny.Spirte.DisasterView.Bug;
+import com.danny.Spirte.DisasterView.Frog;
+import com.danny.Spirte.DisasterView.Ice;
 import com.danny.Spirte.Moses;
+import com.danny.Spirte.RedSeaViewSprite.Anubis;
+import com.danny.Spirte.RedSeaViewSprite.Cat;
+import com.danny.Spirte.RedSeaViewSprite.Pharoah;
+import com.danny.Spirte.Sprite;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,14 +28,40 @@ public class Main extends JPanel implements KeyListener {
 
     Moses moses;
     public static GameView gameView;
+    private int level;
 
     public Main(){
-        moses = new Moses(1, 1);
-        gameView = new DisasterView();
+        level = 1;
+        resetGame(new DisasterView());
+//        moses = new Moses(1, 1);
+//        gameView = new DisasterView();
         addKeyListener(this);
+
 
     }
 
+    private boolean changeLevel(String result){
+        if(result.equals("Next level")){
+            level++;
+            if(level == 2){
+                resetGame(new RedSeaGameView());
+            }else if(level == 3){
+                resetGame(new TencommandmentsView());
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public void resetGame(GameView game){
+//        level = 1;
+        moses = new Moses(1 , 1);
+        gameView = game;
+        repaint();
+    }
 
 
     @Override
@@ -56,6 +91,8 @@ public class Main extends JPanel implements KeyListener {
 
     }
 
+
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -67,22 +104,174 @@ public class Main extends JPanel implements KeyListener {
         switch (e.getKeyCode()){
             case KeyEvent.VK_UP:
                 if(mosesPoint.y >1){
-                    mosesPoint.y -= 1;
+                    String result = moses.overlap(mosesPoint.x, mosesPoint.y -1);
+                    if(result.equals("Die")){
+                        //reset game
+                        level=1;
+                        JOptionPane.showMessageDialog(this,"You die. Please try again.");
+                        resetGame(new DisasterView());
+                        return;
+
+                    }
+                    if(!result.equals("Cannot move")){
+                        mosesPoint.y -= 1;
+                    }
+                    if(result.equals("Game over")){
+                        JOptionPane.showMessageDialog(this,"You win the game.");
+                        return;
+                    }
+
+
+                    if(changeLevel(result)) return;
+
+
                 }
                 break;
             case KeyEvent.VK_DOWN:
                 if(mosesPoint.y < ROW ){
-                    mosesPoint.y +=1;
+                    String result = moses.overlap(mosesPoint.x, mosesPoint.y +1);
+                    if(result.equals("Die")){
+                        //reset game
+                        level=1;
+                        JOptionPane.showMessageDialog(this,"You die. Please try again.");
+                        resetGame(new DisasterView());
+                        return;
+
+                    }
+                    if(!result.equals("Cannot move")){
+                        mosesPoint.y +=1;
+                    }
+                    if(result.equals("Game over")){
+                        JOptionPane.showMessageDialog(this,"You win the game.");
+                        return;
+                    }
+
+                    if(changeLevel(result)) return;
+
+
+
+
                 }
                 break;
             case  KeyEvent.VK_RIGHT:
                 if(mosesPoint.x < COLUMN){
-                    mosesPoint.x += 1;
+                    String result = moses.overlap(mosesPoint.x + 1 , mosesPoint.y);
+                    if(result.equals("Die")){
+                        //reset game
+                        level=1;
+                        JOptionPane.showMessageDialog(this,"You die. Please try again.");
+                        resetGame(new DisasterView());
+                        return;
+
+                    }
+                    if(!result.equals("Cannot move")){
+                        mosesPoint.x += 1;
+                    }
+                    if(result.equals("Game over")){
+                        JOptionPane.showMessageDialog(this,"You win the game.");
+                        return;
+                    }
+                    if(changeLevel(result)) return;
+
                 }
                 break;
             case  KeyEvent.VK_LEFT:
                 if(mosesPoint.x > 1){
-                    mosesPoint.x -= 1;
+                    String result = moses.overlap(mosesPoint.x - 1 , mosesPoint.y);
+                    if(result.equals("Die")){
+                        //reset game
+                        level=1;
+                        JOptionPane.showMessageDialog(this,"You die. Please try again.");
+                        resetGame(new DisasterView());
+                        return;
+
+                    }
+                    if(!result.equals("Cannot move")){
+                        mosesPoint.x -= 1;
+                    }
+                    if(result.equals("Game over")){
+                        JOptionPane.showMessageDialog(this,"You win the game.");
+                        return;
+                    }
+                    if(changeLevel(result)) return;
+
+                }
+                break;
+
+            case KeyEvent.VK_W:
+                for(int i = mosesPoint.y;i>0;i--){
+                    for(Sprite s : gameView.getElements()){
+                        if(s.getRelativePosition() != null
+                                && s.getRelativePosition().x == mosesPoint.x
+                                && s.getRelativePosition().y == i){
+                            if(s instanceof Cat || s instanceof Ice){
+                                return;
+                            }
+                            if(s instanceof Pharoah || s instanceof Anubis || s instanceof Frog || s instanceof Bug){
+                                s.setNullPosition();
+                                repaint();
+                                return;
+                            }
+
+                        }
+                    }
+                }
+                break;
+            case KeyEvent.VK_S:
+                for(int i = mosesPoint.y;i <= ROW ;i++){
+                    for(Sprite s : gameView.getElements()){
+                        if(s.getRelativePosition() != null
+                                && s.getRelativePosition().x == mosesPoint.x
+                                && s.getRelativePosition().y == i){
+                            if(s instanceof Cat || s instanceof Ice){
+                                return;
+                            }
+                            if(s instanceof Pharoah || s instanceof Anubis || s instanceof Frog || s instanceof Bug){
+                                s.setNullPosition();
+                                repaint();
+                                return;
+                            }
+
+                        }
+                    }
+                }
+                break;
+            case KeyEvent.VK_D:
+                for(int i = mosesPoint.x;i <= COLUMN ;i++){
+                    for(Sprite s : gameView.getElements()){
+                        if(s.getRelativePosition() != null
+                                && s.getRelativePosition().x == i
+                                && s.getRelativePosition().y == mosesPoint.y){
+                            if(s instanceof Cat || s instanceof Ice){
+                                return;
+                            }
+                            if(s instanceof Pharoah || s instanceof Anubis || s instanceof Frog || s instanceof Bug){
+                                s.setNullPosition();
+                                repaint();
+                                return;
+                            }
+
+                        }
+                    }
+                }
+                break;
+            case KeyEvent.VK_A:
+                for(int i = mosesPoint.x;i >0 ;i--){
+                    for(Sprite s : gameView.getElements()){
+                        if(s.getRelativePosition() != null
+                                && s.getRelativePosition().x == i
+                                && s.getRelativePosition().y == mosesPoint.y){
+                            if(s instanceof Cat || s instanceof Ice){
+                                return;
+                            }
+                            if(s instanceof Pharoah || s instanceof Anubis || s instanceof Frog || s instanceof Bug){
+                                s.setNullPosition();
+                                repaint();
+                                return;
+                            }
+
+                        }
+                    }
                 }
                 break;
         }
